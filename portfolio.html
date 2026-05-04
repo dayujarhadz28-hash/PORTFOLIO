@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* BODY */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
+
+    /* GLOBAL */
+    section {
+      padding: 80px 10%;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .underline {
+      width: 60px;
+      height: 4px;
+      background: #38bdf8;
+      margin: 10px auto 40px;
+      border-radius: 10px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #cbd5f5;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* HERO */
+    .hero .container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero img {
+      width: 280px;
+      border-radius: 50%;
+      border: 4px solid #38bdf8;
+      box-shadow: 0 0 30px rgba(56,189,248,0.5);
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    .hero button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      transform: scale(1.05);
+      background: #0ea5e9;
+    }
+
+    /* ABOUT */
+    .about-container {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 250px;
+      border-radius: 20px;
+    }
+
+    /* CARDS (GLASS EFFECT) */
+    .award-card,
+    .edu-card,
+    .project-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s;
+    }
+
+    .award-card:hover,
+    .edu-card:hover,
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(56,189,248,0.2);
+    }
+
+    /* GRID SYSTEM */
+    .awards-container,
+    .education-container,
+    .portfolio-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    /* PROJECT */
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .project-content {
+      margin-top: 15px;
+    }
+
+    .project-content a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    /* CONTACT */
+    .contact-container {
+      display: flex;
+      gap: 40px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      border: none;
+      background: #38bdf8;
+      color: #0f172a;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .contact-info iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #020617;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      margin: 0 10px;
+      color: #94a3b8;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* ORGANIZATIONS */
+    .organizations ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .organizations li {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56,189,248,0.2);
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .organizations li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(56,189,248,0.2);
+      border-color: #38bdf8;
+    }
+
+    /* FORM LABELS */
+    .contact-form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #cbd5f5;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 900px) {
+      .hero .container,
+      .about-container,
+      .contact-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .organizations ul {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <h2 class="logo">Rhadz Dayuja</h2>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#organizations">Organizations</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+
+    <div class="left">
+      <img src="image/rhadz.jpg" alt="profile">
+    </div>
+
+    <div class="right">
+      <h1>Hi, I'm <span>Rhadz Dayuja</span></h1>
+      <h3>CIT-U Student & Computer Students' Society Officer</h3>
+
+      <div class="info">
+        <p>Regional Festival Of Talents (RFOT) Qualified</p>
+        <p>Outstanding Performance in Arts</p>
+        <p>Special Recognition for Service Award</p>
+        <p>1st Runner Up in the BFP Award Interschool in Poster Making Contest</p>
+        <p>1st Runner Up in the Regional Festival of Talents Bayle sa Kalye</p>
+        <p>Champion in Wellness Dance Craze</p>
+        <p>Member of Don Sergio Dance Troupe</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <h2>About Me</h2>
+  <div class="underline"></div>
+
+  <div class="about-container">
+
+    <div class="about-text">
+      <p>
+        I am a driven and creative individual with a passion for technology, leadership, and the arts. As a student of Cebu Institute of Technology – University and an officer of the Computer Students’ Society, 
+        I actively engage in opportunities that strengthen both my technical skills and my ability to lead and serve others.
+      </p>
+
+      <p>
+        My journey is shaped by discipline, creativity, and a commitment to excellence. I have been recognized as a 
+        Regional Festival of Talents (RFOT) qualifier and have received distinctions such as Outstanding Performance in Arts and Special Recognition for Service.
+      </p>
+
+      <p>Beyond academics and competitions, I express my passion through movement and performance as a proud member of the Don Sergio Dance Troupe.</p>
+
+      <p class="quote">
+        <em>“Growth is a continuous journey—use your skills, embrace your passion, and create impact wherever you go.”</em>
+      </p>
+    </div>
+
+    <div class="about-image">
+      <img src="image/rhadz.jpg" alt="profile">
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<!-- ORGANIZATIONS -->
+<section id="organizations" class="organizations">
+  <h2>Organizations</h2>
+  <div class="underline"></div>
+
+  <ul>
+    <li>Computer Students' Society (CSS)</li>
+    <li>Supreme Secondary Learner Government (SSLG)</li>
+    <li>Kabataan Kuntra Droga at Terorismo (KKDT)</li>
+    <li>Member - Katipunan ng Kabataan (KK)</li>
+  </ul>
+</section>
+
+    
+
+
+<!-- AWARDS -->
+<section id="awards" class="awards">
+  <h2>Awards</h2>
+  <div class="underline"></div>
+
+  <div class="awards-container">
+
+    <div class="award-card">
+      <h3>Champion</h3>
+      <p>Wellness Dance Craze</p>
+      <small>April 11, 2024, Cebu City, Philippines</small>
+    </div>
+
+    <div class="award-card">
+      <h3>1st Runner Up</h3>
+      <p>Regional Festival of Talents Bayle sa Kalye</p>
+      <small>April 2, 2025, Talisay, Cebu, Philippines</small>
+    </div>
+
+    <div class="award-card">
+      <h3>1st Runner Up</h3>
+      <p>
+        BFP Award Interschool in Poster Making Contest
+      </p>
+      <small>March 31, 2025, Cebu City, Philippines</small>
+    </div>
+
+
+    <div class="award-card">
+      <h3>Outstanding Performance in Arts</h3>
+      <p>
+        Regional Festival Of Talents (RFOT) Qualified
+      </p>
+      <small>April 15, 2025, Cebu City, Philippines</small>
+    </div>
+
+    <div class="award-card">
+      <h3>Special Recognition for Service Award</h3>
+      <p>Supreme Secondary Learner Government</p>
+      <small>April 15, 2025, Cebu City, Philippines</small>
+    </div>
+
+    <div class="award-card">
+      <h3>Member of Don Sergio Dance Troupe</h3>
+      <p>Don Sergio Osmena Memorial National High School</p>
+      <small>April 15, 2025, Cebu City, Philippines</small>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- EDUCATION -->
+<section id="education" class="education">
+  <h2>Educational Background</h2>
+  <div class="underline"></div>
+
+  <div class="education-container">
+
+    <div class="edu-card">
+      <h3>Elementary</h3>
+      <p>Labangon Bliss Elementary School, 2018 - 2019</p>
+    </div>
+
+    <div class="edu-card">
+      <h3>Junior High School</h3>
+      <p>Don Sergio Osmena Memorial National High School, 2019 - 2023</p>
+    </div>
+
+    <div class="edu-card">
+      <h3>Senior High School</h3>
+      <p>Don Sergio Osmena Memorial National High School, 2023 - 2025</p>
+    </div>
+
+    <div class="edu-card">
+      <h3>College</h3>
+      <p>Cebu Institute of Technology, 2026 - 2029</p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <h2 class="section-title">My Portfolio</h2>
+
+  <div class="portfolio-container">
+
+    <!-- PROJECT 1-->
+    <div class="project-card">
+      <img src="image/1.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 1</h3>
+        <p>First web development activity - HTML & CSS fundamentals</p>
+        <a href="activity1.html"
+   target="_blank"
+   rel="noopener noreferrer">
+  View Project
+</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 2-->
+    <div class="project-card">
+      <img src="image/2.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 2</h3>
+        <p>Building responsive web pages</p>
+        <a href="activity2.html" target="_blank" rel="noopener noreferrer">View Project</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 3-->
+    <div class="project-card">
+      <img src="image/3.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 3</h3>
+        <p>Styling and layout techniques</p>
+        <a href="activity3.html" target="_blank" rel="noopener noreferrer">View Project</a>
+      </div>
+    </div>
+
+
+    <!-- PROJECT 4-->
+    <div class="project-card">
+      <img src="image/4.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 4</h3>
+        <p> Advanced CSS styling</p>
+        <a href="activity4v2.html" target="_blank" rel="noopener noreferrer">View Project</a>
+      </div>
+    </div>
+
+
+    <!-- PROJECT 5-->
+    <div class="project-card">
+      <img src="image/5.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 5</h3>
+        <p>Interactive web components</p>
+        <a href="activity5/activity5.html"
+   target="_blank"
+   rel="noopener noreferrer">
+  View Project
+</a>
+      </div>
+    </div>
+
+
+    <!-- PROJECT 6-->
+    <div class="project-card">
+      <img src="image/6.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 6</h3>
+        <p>Business Website Development</p>
+        <a href="https://dahuyarice-fgtmoyuzr-dayujarhadz28-hashs-projects.vercel.app/"
+   target="_blank"
+   rel="noopener noreferrer">
+  View Project
+</a>
+      </div>
+    </div>
+
+
+    <!-- PROJECT 7-->
+    <div class="project-card">
+      <img src="image/7.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 7</h3>
+        <p>Web development practice</p>
+        <a href="activity7.html"
+   target="_blank"
+   rel="noopener noreferrer">
+  View Project
+</a>
+      </div>
+    </div>
+
+
+    <!-- PROJECT 8-->
+    <div class="project-card">
+      <img src="image/8.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 8</h3>
+        <p>Advanced web techniques</p>
+        <a href="activity8.html"
+   target="_blank"
+   rel="noopener noreferrer">
+  View Project
+</a>
+      </div>
+    </div>
+
+
+    <!-- PROJECT 9-->
+    <div class="project-card">
+      <img src="image/9.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 9</h3>
+        <p>Building complex layouts</p>
+        <a href="activity9.html" target="_blank" rel="noopener noreferrer">View Project</a>
+      </div>
+    </div>
+
+    
+    <!-- PROJECT 10-->
+    <div class="project-card">
+      <img src="image/10.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 10</h3>
+        <p>Web design best practices</p>
+        <a href="activity10.html" target="_blank" rel="noopener noreferrer">View Project</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 11-->
+    <div class="project-card">
+      <img src="image/11.jpg" alt="profile">
+      <div class="project-content">
+        <h3>Activity 11</h3>
+        <p>JavaScript integration</p>
+        <a href="activity11/activity11.html" target="_blank" rel="noopener noreferrer">View Project</a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2 class="section-title">Get in Touch</h2>
+
+  <div class="contact-container">
+
+    <!-- LEFT: FORM -->
+    <div class="contact-form">
+      <p>Have a project in mind or just want to chat? Feel free to reach out!</p>
+
+      <form>
+        <label>Name</label>
+        <input type="text" placeholder="Your Name">
+
+        <label>Email</label>
+        <input type="email" placeholder="youremail@example.com">
+
+        <label>Message</label>
+        <textarea placeholder="Your message..."></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- RIGHT: MAP + SOCIAL -->
+    <div class="contact-info">
+      <h4>Find Me Here</h4>
+
+      <iframe 
+        src="https://maps.google.com/maps?q=cebu&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+
+      <p>You can also find me on:</p>
+
+      <div class="social-icons">
+        <a href="#">📧</a>
+        <a href="#">🔗</a>
+        <a href="#">💻</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Rhadz Clinton P. Dayuja. All rights reserved.</p>
+
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#organizations">Organizations</a>
+    <a href="#awards">Awards</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  document.querySelectorAll('.project-card a').forEach(link => {
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
+  });
+</script>
+</body>
+</html>
