@@ -1,0 +1,72 @@
+/* Import modern Google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdf6ec; /* soft warm background */
+}
+
+/* Shared container style */
+.container {
+    width: 85%;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #ff914d, #ff5e62);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.header h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.header p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 60px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #ff5e62;
+}
+
+/* Main content */
+.main {
+    background-color: white;
+    min-height: 600px;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

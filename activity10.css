@@ -1,0 +1,102 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* SECTIONS (CARDS) */
+div {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 600px;
+    margin: auto;
+
+    box-shadow: 
+        0 10px 25px rgba(0,0,0,0.2),
+        0 5px 10px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+div:hover {
+    transform: translateY(-8px);
+}
+
+/* TITLE */
+h2 {
+    color: #4f46e5;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* LABEL */
+label {
+    font-size: 14px;
+    color: #555;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.2s;
+}
+
+/* INPUT FOCUS */
+input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 8px rgba(102,126,234,0.4);
+}
+
+/* BUTTON */
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: 500;
+
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+
+    transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+button:hover {
+    transform: scale(1.08);
+    opacity: 0.9;
+}
+
+/* OUTPUT */
+p {
+    margin-top: 10px;
+    color: #16a34a;
+    font-weight: 500;
+}
+
+/* HR */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #fff, transparent);
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activity 9</title>
+    <link rel="stylesheet" href="activity9.css">
+
+    <script>
+        function myFunction() {
+            let text;
+            let fullname = prompt("Full name:", "Enter full name here");
+
+            const output = document.getElementById("demo");
+
+            if (fullname == null || fullname.trim() === "") {
+                text = "⚠️ The field is required!";
+                output.className = "error";
+            } else {
+                text = "👋 Hello " + fullname + "! How are you today?";
+                output.className = "success";
+            }
+
+            output.innerHTML = text;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="card">
+        <h2>JavaScript Prompt</h2>
+        <button onclick="myFunction()">Click Here</button>
+        <p id="demo"></p>
+    </div>
+
+</body>
+</html>

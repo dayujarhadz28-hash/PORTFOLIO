@@ -1,0 +1,98 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY BACKGROUND (ANIMATED GRADIENT) */
+body {
+    font-family: 'Courier New', monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(270deg, #020617, #0f172a, #1e293b);
+    background-size: 600% 600%;
+    animation: bgMove 10s infinite alternate;
+
+    color: white;
+    text-align: center;
+}
+
+/* BACKGROUND ANIMATION */
+@keyframes bgMove {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
+/* TITLE (GLITCH EFFECT) */
+h2 {
+    font-size: 50px;
+    color: #00f7ff;
+    position: relative;
+    text-shadow:
+        0 0 10px #00f7ff,
+        0 0 30px #00f7ff;
+
+    animation: glitch 1s infinite;
+}
+
+/* GLITCH ANIMATION */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-1px, 1px); }
+    80% { transform: translate(1px, -1px); }
+    100% { transform: translate(0); }
+}
+
+/* NAME STYLE */
+.name {
+    font-size: 20px;
+    color: #22c55e;
+    margin: 15px 0;
+    text-shadow: 0 0 10px #22c55e;
+}
+
+/* PARAGRAPHS */
+p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #e2e8f0;
+}
+
+/* FAVORITE COLOR TEXT */
+.favorite-color {
+    color: #1e3a8a;
+    text-shadow:
+        0 0 5px #1e3a8a,
+        0 0 15px #1e3a8a,
+        0 0 30px #1e3a8a;
+}
+
+/* HOVER EFFECT (TEXT GLOW BOOST) */
+p:hover {
+    color: #00f7ff;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* SCANLINE EFFECT (INSANE LOOK) */
+body::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03) 0px,
+        rgba(255,255,255,0.03) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+}

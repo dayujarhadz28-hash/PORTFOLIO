@@ -1,0 +1,111 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Courier New', monospace;
+    background: #020617;
+    color: #fff;
+    padding: 30px;
+}
+
+/* SECTION STYLE */
+div {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #00f7ff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 0 10px #00f7ff,
+        0 0 30px #00f7ff33,
+        inset 0 0 10px #00f7ff22;
+
+    transition: 0.3s;
+}
+
+/* HOVER GLOW */
+div:hover {
+    transform: scale(1.02);
+    box-shadow:
+        0 0 20px #00f7ff,
+        0 0 50px #00f7ff55;
+}
+
+/* TITLES */
+h2 {
+    color: #00f7ff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #00f7ff;
+}
+
+/* LABEL */
+label {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #00f7ff;
+    background: transparent;
+    color: white;
+    outline: none;
+
+    box-shadow: inset 0 0 5px #00f7ff55;
+}
+
+/* INPUT FOCUS */
+input:focus {
+    border-color: #00f7ff;
+    box-shadow: 0 0 10px #00f7ff;
+}
+
+/* BUTTON */
+button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+
+    background: #00f7ff;
+    color: black;
+
+    box-shadow: 0 0 10px #00f7ff;
+    transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+button:hover {
+    background: #0ea5e9;
+    box-shadow:
+        0 0 20px #00f7ff,
+        0 0 40px #00f7ff;
+}
+
+/* OUTPUT TEXT */
+p {
+    margin-top: 10px;
+    color: #22c55e;
+    text-shadow: 0 0 5px #22c55e;
+}
+
+/* HR STYLE */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #00f7ff, transparent);
+    margin: 30px 0;
+}

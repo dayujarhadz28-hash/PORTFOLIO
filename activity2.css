@@ -1,0 +1,135 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY WITH IMAGE + ANIMATION */
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    padding: 40px;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+        url('image/R.jpg') center/cover no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* TITLE */
+h3 {
+    font-size: 28px;
+    color: #38bdf8;
+    text-shadow: 0 0 10px #38bdf8;
+    letter-spacing: 1px;
+}
+
+/* LIST CONTAINER EFFECT */
+ol {
+    width: 350px;
+    padding: 20px 25px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4),
+        0 0 20px rgba(56,189,248,0.2);
+
+    counter-reset: custom-counter;
+
+    transition: 0.4s;
+}
+
+/* HOVER CARD EFFECT */
+ol:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* LIST ITEMS */
+li {
+    list-style: none;
+    position: relative;
+    padding-left: 45px;
+    margin: 12px 0;
+    color: #e2e8f0;
+    font-size: 18px;
+
+    transition: 0.3s;
+}
+
+/* CUSTOM NUMBER STYLE */
+li::before {
+    counter-increment: custom-counter;
+    content: counter(custom-counter);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 0 10px #38bdf8;
+}
+
+/* HOVER EFFECT */
+li:hover {
+    color: #38bdf8;
+    transform: translateX(10px);
+}
+
+/* NESTED LIST */
+ul {
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+ul li {
+    font-size: 14px;
+    color: #94a3b8;
+    padding-left: 30px;
+}
+
+/* NESTED BULLET */
+ul li::before {
+    content: "➤";
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-size: 12px;
+}
+
+/* SMOOTH ANIMATION ON LOAD */
+ol, h3 {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+/* KEYFRAMES */
+@keyframes fadeUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
